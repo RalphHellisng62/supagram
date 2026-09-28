@@ -104,7 +104,7 @@ function Modal({
 export default function RankPage() {
   const [selectedPost, setSelectedPost] = useState<Post | null>(null);
 
-  const [posts, setPosts] = useState <Posts[]>([])
+  const [posts, setPosts] = useState <Post[]>([])
   
       useEffect(() => {
         async function getPosts() {
