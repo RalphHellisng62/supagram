@@ -97,7 +97,7 @@ export default function Home() {
 
   
 
-  const [posts, setPosts] = useState <Posts[]>([])
+  const [posts, setPosts] = useState <Post[]>([])
 
     useEffect(() => {
       async function getPosts() {
