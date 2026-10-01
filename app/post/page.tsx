@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useRef, useState } from "react";
-import { supabase } from "../utils/supabase";
+import { supabase } from "../lib/supabase";
 export default function CreatePage() {
 
   const [imageFile, setImageFile] = useState<File | null>(null);
@@ -123,7 +123,7 @@ export default function CreatePage() {
       {/* Header */}
       <header className="sticky top-0 z-40 bg-card-bg border-b border-border">
         <div className="max-w-lg mx-auto px-4 py-3 flex items-center justify-center">
-          <h1 className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+          <h1 className="text-xl font-bold bg-gradient-to from-primary to-accent bg-clip-text text-transparent">
             Crear Post
           </h1>
         </div>
@@ -235,7 +235,7 @@ export default function CreatePage() {
           <button
             type="submit"
             disabled={isLoading || !imageFile}
-            className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-primary to-accent text-white font-semibold hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            className="w-full py-3 px-4 rounded-xl bg-gradient-to from-primary to-accent text-white font-semibold hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
             {isLoading ? (
               <>

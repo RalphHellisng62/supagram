@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import PostCard from "./components/PostCard";
-import { posts as mockPosts, type Post } from "./mocks/posts";
-import { supabase } from "./utils/supabase";
+import { supabase } from "./lib/supabase";
+import { Post } from "./types";
 
 export default function Home() {
 
@@ -19,16 +19,9 @@ export default function Home() {
       .order("created_at", { ascending: false });
 
     if (postsFromDb) {
-      // Importar los mocks (arriba del archivo)
-      // import { posts as mockPosts } from "./mocks/posts";
-
-      const postsWithUser = postsFromDb.map((post, index) => {
-        // Reutilizar los usuarios de los mocks en ciclo
-        const mockUser = mockPosts[index % mockPosts.length].user;
-
+      const postsWithUser = postsFromDb.map((post) => {
         return {
           ...post,
-          user: mockUser, // username + avatar del mock
           likes: post.likes ?? 0,
           isLiked: false,
           created_at: new Date(post.created_at),
@@ -61,7 +54,7 @@ export default function Home() {
       {/* Header */}
       <header className="sticky top-0 z-50 bg-card-bg border-b border-border">
         <div className="max-w-lg mx-auto px-4 py-3 flex items-center justify-center">
-          <h1 className="text-2xl font-bold bg-gradient-to from-primary to-accent bg-clip-text text-transparent">
+          <h1 className="text-2xl font-bold bg-gradient-to from-primary to-accent bg-clip-text text-transparent bg-amber-800">
             Supagram
           </h1>
         </div>
